@@ -1,0 +1,18 @@
+.LogIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.LogIn h1 {
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+}
+.LogIn h2 {
+    font-size: 1.0rem;
+    color: var(--color-text-offset);
+    width:max(250px,30%);
+    margin-bottom: 30px;
+}

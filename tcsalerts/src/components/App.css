@@ -1,0 +1,102 @@
+.App {
+    text-align: center;
+    width:100%;
+    height:100%;
+    padding-bottom:calc(5rem + 20px + 60px);
+    padding-inline: 80px;
+    text-decoration: none;
+}   
+
+.App > h1{
+    font-size: 2.8rem;
+    padding-top: 10px;
+    margin-bottom: 2px;
+}
+.App > h2{
+    font-size: 1.3rem;
+    color:var(--color-text-offset);
+    font-weight: normal;
+    margin-bottom:20px;
+}
+
+@media (width <= 830px) {
+    .App {
+        padding-inline: 30px;
+        padding-bottom:calc(5rem + 25px + 30px);
+    }
+    .App > h1{
+        font-size: 2.4rem;
+        padding-top: 13px;
+        margin-bottom: 2px;
+    }
+    .App > h2{
+        font-size: 1.0rem;
+        color:var(--color-text-offset);
+        font-weight: normal;
+        margin-bottom:25px;
+    }
+}
+
+.App .Page {
+    background-color: var(--color-background-accent);
+    width:100%;
+    height:100%;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.8);
+    border:2px solid var(--color-border);
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+}
+.App .Page nav {
+    border-bottom: 2px solid var(--color-border)
+}
+.App .Page main {
+    padding:26px;
+}
+
+.App .Page button.themeButton {
+    background-color: var(--color-background-pop);
+    border: 2px solid var(--color-border-pop);
+    border-radius: 5px;
+    padding:17px 80px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.App .Page button.themeButton:hover {
+    background-color: var(--color-background-pop-hover);
+}
+.App .Page .themeInput {
+    background-color: var(--color-background-pop);
+    border: 2px solid var(--color-border-pop);
+    border-radius: 5px;
+    padding:7px 10px;
+    font-size: 1.2rem;
+}
+.App .Page .themeInput::placeholder {
+    color: var(--color-text-offset)
+}
+
+.App .Page a{
+    /* color:inherit; */
+    color:var(--color-text-accent);
+}
+
+body {
+    background-color: var(--color-background);
+    color:white;
+    color-scheme: dark;
+}
+
+:root {
+    --color-background:hsl(167, 70%, 5%);
+    --color-background-accent:hsl(180, 15%, 19%);
+    --color-background-pop:hsl(155, 50%, 40%);
+    --color-background-pop-hover:hsl(155, 50%, 44%);
+    --color-border:hsl(0, 0%, 58%);
+    --color-border-pop:hsl(0, 0%, 70%);
+    --color-accent:#16C172;
+    --color-text-offset:hsl(0, 0%, 68%);
+    --color-text-accent:hsl(152, 80%, 70%);
+}

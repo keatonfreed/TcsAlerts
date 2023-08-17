@@ -1,0 +1,66 @@
+.Dashboard nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:65px;
+    padding-inline:15px;
+}
+.Dashboard nav > * {
+    flex-basis: 33.33%;
+}
+.Dashboard nav .profile {
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+.Dashboard nav .profile img {
+    border-radius: 50%;
+    max-height:40px;
+    aspect-ratio: 1;
+}
+.Dashboard nav button {
+    background-color:unset;
+    border:none;
+    color:hsl(0, 50%, 50%);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1rem;
+    cursor: pointer;
+    padding:5px;
+}
+.Dashboard nav .logout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+.Dashboard .themeDropdown {
+    width:250px;
+    text-align: left;
+}
+.Dashboard .themeDropdownControl {
+    cursor: pointer;
+}
+
+.Dashboard .grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.Dashboard .grid .setting {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding-inline: 15px;
+    min-height:100px;
+    justify-content: center;
+}
+.Dashboard .grid .setting p {
+    font-size: 1.2rem;
+}
+.Dashboard .grid .setting .themeLink {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-accent);
+    margin-left:5px;
+    cursor: pointer;
+}
