@@ -44,7 +44,8 @@
 
 .Dashboard .grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    /* grid-template-columns: repeat(3,1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(250px, 100%/3)), 1fr));
 }
 .Dashboard .grid .setting {
     display: flex;
@@ -53,6 +54,8 @@
     padding-inline: 15px;
     min-height:100px;
     justify-content: center;
+    min-width:250px;
+    width: 100%;
 }
 .Dashboard .grid .setting p {
     font-size: 1.2rem;
