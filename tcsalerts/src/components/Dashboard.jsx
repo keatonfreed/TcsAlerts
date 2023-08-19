@@ -46,7 +46,7 @@ export default function Dashboard() {
                 <div className="grid">
                     <div className="setting">
                         <p>First/Last Name</p>
-                        <input type="text" placeholder='John Doeg' className='themeInput' />
+                        <input type="text" placeholder='John Doe' className='themeInput' />
                     </div>
                     <div className="setting">
                         <p>Phone Number</p>
