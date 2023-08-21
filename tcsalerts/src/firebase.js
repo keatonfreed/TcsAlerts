@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-// import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const app = initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -19,5 +19,5 @@ export const signInWithGooglePopup = () => {
     });
     return signInWithPopup(auth, provider)
 };
-// export const db = getFirestore(app);
+export const db = getFirestore(app);
 export default app

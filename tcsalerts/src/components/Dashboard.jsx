@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useCallback } from 'react'
 import { useAuth } from "../contexts/AuthContext"
 import './Dashboard.css'
 
@@ -10,24 +10,31 @@ import 'react-phone-number-input/style.css'
 
 
 export default function Dashboard() {
-    let { currentUser, logout } = useAuth()
+    let { currentUser, logout, currentUserData,setCurrentUserData,updateUserData,userDataChanged } = useAuth()
 
-    // const options = [
-    //     'Verizon', 'Tmobile', 'Sprint'
-    // ];
-    // const defaultOption = options[0];
+    // const [displayName, setDisplayName] = useState(currentUserData?.displayName)
+    // const [phoneNumber, setPhoneNumber] = useState(currentUserData?.phoneNumber)
+    // const [calenderLink, setCalenderLink] = useState(currentUserData?.calenderLink)
 
-    // function changedDropdown(event) {
-    //     console.log("changed:", event)
-    // }
 
-    // `value` will be the parsed phone number in E.164 format.
-    // Example: "+12133734253".
-    const [number, setNumber] = useState()
-
-    function calLinkHelp(e) {
-
+    function saveUserData() {
+        updateUserData(currentUserData)
     }
+
+    const unloadUpdate = useCallback(e => {
+      if(userDataChanged) {
+          e.preventDefault()
+          e.returnValue = ''
+      }
+    },[userDataChanged])
+    useEffect(() => {
+        window.addEventListener('beforeunload', unloadUpdate)
+        return () => {
+            window.removeEventListener('beforeunload', unloadUpdate)
+        }
+      }, [unloadUpdate])
+
+
 
     return (
         <div className='Dashboard'>
@@ -46,7 +53,8 @@ export default function Dashboard() {
                 <div className="grid">
                     <div className="setting">
                         <p>First/Last Name</p>
-                        <input type="text" placeholder='John Doe' className='themeInput' />
+                        <input type="text" placeholder='John Doe' className='themeInput' value={currentUserData?.displayName || ""}
+                            onChange={(e) => setCurrentUserData({...currentUserData,displayName:e.target.value})}/>
                     </div>
                     <div className="setting">
                         <p>Phone Number</p>
@@ -54,16 +62,33 @@ export default function Dashboard() {
                             international
                             defaultCountry="US"
                             country='US'
-                            value={number}
-                            onChange={setNumber}
+                            value={currentUserData?.phoneNumber || ""}
+                            onChange={(num) => setCurrentUserData({...currentUserData,phoneNumber:num || ""})}
                             className="themeInput"
                             placeholder="999 999 9999" />
                     </div>
                     <div className="setting">
-                        <p>Calender Link <button className='themeLink' onClick={calLinkHelp}>Help?</button></p>
-                        <input placeholder='webcal:// ' type="text" className='themeInput' />
+                        <p>Calender Link <button className='themeLink' popovertarget="calenderHelpDisplay">Help?</button></p>
+                        <dialog popover="" id="calenderHelpDisplay" className='calenderHelpDialog'>
+                            <h1>Help</h1>
+                            <p>Your Tcs Calender Link is how we connect to the Tcs system for data.</p>
+                            <h2>Step 1</h2>
+                            <p>Click this <a target='_blank' rel="noreferrer" href='https://tcs-walnutcreek.pike13.com/'>link</a> (tcs-walnutcreek.pike13.com)</p>
+                            <h2>Step 2</h2>
+                            <p>Click the "Subscribe" button on the right</p>
+                            <h2>Step 3</h2>
+                            <p>Click the "Show Calender URL" link</p>
+                            <h2>Step 4</h2>
+                            <p>Copy the entire URL that appears in the box, and paste it into your dashboard here.</p>
+                        </dialog>
+                        <input placeholder='webcal:// ' type="text" className='themeInput' value={currentUserData?.calenderLink || ""}
+                            onChange={(e) => setCurrentUserData({...currentUserData,calenderLink:e.target.value})}/>
                     </div>
                 </div>
+                <button disabled={!userDataChanged} className='themeButton saveButton' onClick={saveUserData}>
+                    Save
+                </button>
+                {/* <p>{JSON.stringify(currentUserData)}</p> */}
             </main>
         </div>
     )

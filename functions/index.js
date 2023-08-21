@@ -118,7 +118,7 @@ async function sendTwilioText(number, text) {
     let response = await client.messages
         .create({
             body: text,
-            from: '+18339843616',
+            from: '+18559444529',
             to: number
         })
 }
@@ -126,27 +126,27 @@ async function sendTwilioText(number, text) {
 // sendTwilioText('+19255886990', 'hi there, from function!');
 // +19253788652
 
-const list = [
-    { name: 'Zealand S Kubishta', number: '+19252194837', address: 'Lorey Ct.' },
+// const list = [
+//     // { name: 'Zealand S Kubishta', number: '+19252194837', address: 'Lorey Ct.' },
 
-    // { name: 'Cayden J Sun', number: '+19258758896', address: '11 Alta Hill Way' },
-    // { name: 'Riley M Murphy', number: '+19253788652', address: 'Encinal Dr' },
-    { name: 'Enzo Lee', number: '+19253601493', address: '900 Bronson Ln' },
-    { name: 'Alex Yurchak', number: '+19254481204', address: '60 Arlene Ln' },
-    { name: 'Keaton A Freed', number: '+19255886990', address: '11 Beisheim Ln' },
-]
+//     // // { name: 'Cayden J Sun', number: '+19258758896', address: '11 Alta Hill Way' },
+//     // // { name: 'Riley M Murphy', number: '+19253788652', address: 'Encinal Dr' },
+//     // { name: 'Enzo Lee', number: '+19253601493', address: '900 Bronson Ln' },
+//     // { name: 'Alex Yurchak', number: '+19254481204', address: '60 Arlene Ln' },
+//     // { name: 'Keaton A Freed', number: '+19255886990', address: '11 Beisheim Ln' },
+// ]
 
-for (const ind in list) {
-    person = list[ind]
+// for (const ind in list) {
+//     person = list[ind]
 
-    // const message = `${person.name}. I'm aware of your identity and your location at ${person.address}. You have 48 hours to transfer $1${Math.floor(Math.random() * 5 + 2)}00 USD to me. Fail, and I will ensure the complete devastation of your residence.`
-    const message = `${person.name}, please be advised that the earlier message was part of a drill orchestrated by the Safety Department. Everything is in order and no cause for alarm. For further clarification or concerns, reach out to us at 925-588-6990.`
+//     // const message = `${person.name}. I'm aware of your identity and your location at ${person.address}. You have 48 hours to transfer $1${Math.floor(Math.random() * 5 + 2)}00 USD to me. Fail, and I will ensure the complete devastation of your residence.`
+//     const message = `${person.name}, please be advised that the earlier message was part of a drill orchestrated by the Safety Department. Everything is in order and no cause for alarm. For further clarification or concerns, reach out to us at 925-588-6990.`
 
 
-    sendTwilioText(person.number, message);
-    console.log("Sent to:", person.name)
-}
+//     sendTwilioText(person.number, message);
+//     console.log("Sent to:", person.name)
+// }
 
-// sendTwilioText('+19255886990', 'Hello Riley M Murphy. I know exactly who you are, and that you live on Encinal Dr. Give me $1000 USD or I will send a full attack to your location.');
+sendTwilioText('+19255886990', 'hi there keaton, sent from api. new account.');
 
 //########################################################################################### TWILIO END ###########################################################

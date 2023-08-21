@@ -1,12 +1,20 @@
 .Dashboard {
     height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.Dashboard main {
     overflow-y: scroll;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .Dashboard nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height:65px;
+    min-height:65px;
     padding-inline:15px;
 }
 .Dashboard nav > * {
@@ -38,18 +46,12 @@
     justify-content: flex-end;
     padding-right: 10px;
 }
-.Dashboard .themeDropdown {
-    width:250px;
-    text-align: left;
-}
-.Dashboard .themeDropdownControl {
-    cursor: pointer;
-}
 
 .Dashboard .grid {
     display: grid;
     /* grid-template-columns: repeat(3,1fr); */
     grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(250px, 100%/3)), 1fr));
+    /* flex-grow: 1; */
 }
 .Dashboard .grid .setting {
     display: flex;
@@ -71,3 +73,62 @@
     margin-left:5px;
     cursor: pointer;
 }
+.Dashboard .calenderHelpDialog:popover-open {
+    width:max(550px,50%);
+    max-width: 90%;
+    height:max(50%,500px);
+    max-height: 90%;
+    inset: 0;
+    margin:auto;
+    background-color: var(--color-background-accent);
+    border-radius: 25px;
+    overflow: scroll;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.8);
+    border:2px solid var(--color-border);
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:20px;
+
+    & h1 {
+        margin-bottom:10px;
+    }
+    & h2 {
+        margin-bottom:5px;
+    }
+    & h1 {
+        margin-bottom:10px;
+    }
+    & p {
+        width:80%;
+        margin-bottom:20px;
+    }
+}
+.Dashboard .calenderHelpDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+.Dashboard .calenderHelpDialog{
+    &:popover-open {
+        @starting-style {
+            opacity: 0;
+        }
+
+      opacity: 1;
+    }
+    opacity: 0;
+    transition: opacity 0.5s, display 0.5s allow-discrete;
+  }
+
+  .Dashboard .saveButton {
+    margin-top:20px;
+    width:fit-content;
+    margin-left:auto;
+    /* border-color: hsl(0, 50%, 55%) !important; */
+}
+.Dashboard .saveButton:disabled {
+    /* border-color: var(--color-border) !important; */
+    opacity: 0.6;
+    background-color: hsl(0, 0%, 40%) !important;
+    color:inherit;
+  }

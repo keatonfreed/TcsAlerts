@@ -10,9 +10,9 @@ import NotFound from './NotFound';
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
         <h1>Tcs Alerts</h1>
         <h2>By: Keaton Freed</h2>
+      <AuthProvider>
         <div className='Page'>
           <Router>
             <Routes>
