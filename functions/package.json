@@ -16,7 +16,6 @@
     "dotenv": "^16.3.1",
     "firebase-admin": "^11.8.0",
     "firebase-functions": "^4.3.1",
-    "node-mailjet": "^6.0.4",
     "twilio": "^4.15.0"
   },
   "devDependencies": {
