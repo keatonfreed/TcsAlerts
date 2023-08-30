@@ -136,7 +136,7 @@ const runAlerts = (req, res) => {
 }
 
 // every day 00:00
-exports.scheduled = onSchedule("every day 14:30", runAlerts)
+exports.scheduledRun = onSchedule("every day 14:30", runAlerts)
 // exports.scheduled = onSchedule("every day 20:32", runAlerts)
 
 exports.smsReply = onRequest((req, res) => {
